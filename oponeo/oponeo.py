@@ -1,0 +1,24 @@
+import oponeo.constants as con
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+class Oponeo(webdriver.Chrome):
+    def __init__(self):
+        chrome_options = Options()
+        chrome_options.add_argument("--disable-search-engine-choice-screen")
+        service = Service(executable_path="chromedriver.exe")
+        super().__init__(chrome_options,service)
+        self.implicitly_wait(15)
+        self.maximize_window()
+
+    def __exit__(self, exc_type, exc, traceback):
+        self.quit()
+
+    def load_page(self):
+        self.get(con.BASE_URL)
+
+    
