@@ -28,5 +28,5 @@ class Oponeo(webdriver.Chrome):
     
     
     
-    def sleep_browser():
+    def sleep_browser(self):
         time.sleep(10)
