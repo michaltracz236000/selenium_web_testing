@@ -30,7 +30,17 @@ class Oponeo(webdriver.Chrome):
     def choose_size(self, width, profile, diameter):
         width_tag = self.find_element(By.ID,"_carTires_ctTS_ddlDimWidth")
         select_width = Select(width_tag)
-        select_width.select_by_value(width)
+        select_width_flag=0
+        for option in select_width.options:
+            if option.get_attribute("value")==width:
+                select_width.select_by_value(width) 
+                select_width_flag=1
+                break
+        if select_width_flag!=1:
+            print("Width not avaliable")
+            return
+
+            
     
     
     def sleep_browser(self):
