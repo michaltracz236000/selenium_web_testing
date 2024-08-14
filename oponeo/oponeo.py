@@ -21,4 +21,8 @@ class Oponeo(webdriver.Chrome):
     def load_page(self):
         self.get(con.BASE_URL)
 
+    def decline_cookies(self):
+        decline_btn=self.find_element(By.CSS_SELECTOR,"#consentsBar > div > div > span.reject.button.primary.md.solid")
+        decline_btn.click()
+
     
