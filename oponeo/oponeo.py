@@ -44,15 +44,24 @@ class Oponeo(webdriver.Chrome):
         select_ratio = Select(ratio_tag)
         select_ratio_flag = 0
         for option in select_ratio.options:
-            print(option.get_attribute("value"))
             if option.get_attribute("value")==ratio:
                 select_ratio.select_by_value(ratio)
                 select_ratio_flag=1
                 break
         if select_ratio_flag!=1:
-            print("Profile not avaliable")
+            print("Ratio not avaliable")
             return
-        diameter_tag = self.find_element(By.ID,"_carTires_ctTS_ddlDimDiameter")
+        time.sleep(2)
+        diameter_tag = self.find_element(By.NAME,"_carTires_ctTS_ddlDimDiameter")
+        select_diameter = Select(diameter_tag)
+        select_diameter_flag=0
+        for option in select_diameter.options:
+            if option.get_attribute("value")==diameter:
+                select_diameter.select_by_value(diameter)
+                select_diameter_flag=1
+                break
+        if select_diameter_flag!=1:
+            print("Diameter not avaliable")
 
     
     
