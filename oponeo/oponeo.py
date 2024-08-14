@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.select import Select
+
 import time
 
 class Oponeo(webdriver.Chrome):
@@ -25,7 +27,10 @@ class Oponeo(webdriver.Chrome):
         decline_btn=self.find_element(By.CSS_SELECTOR,"#consentsBar > div > div > span.reject.button.primary.md.solid")
         decline_btn.click()
 
-    
+    def choose_size(self, width, profile, diameter):
+        width_tag = self.find_element(By.ID,"_carTires_ctTS_ddlDimWidth")
+        select_width = Select(width_tag)
+        select_width.select_by_value(width)
     
     
     def sleep_browser(self):
