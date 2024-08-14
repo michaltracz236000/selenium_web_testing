@@ -27,7 +27,7 @@ class Oponeo(webdriver.Chrome):
         decline_btn=self.find_element(By.CSS_SELECTOR,"#consentsBar > div > div > span.reject.button.primary.md.solid")
         decline_btn.click()
 
-    def choose_size(self, width, profile, diameter):
+    def choose_size(self, width, ratio, diameter):
         width_tag = self.find_element(By.ID,"_carTires_ctTS_ddlDimWidth")
         select_width = Select(width_tag)
         select_width_flag=0
@@ -39,9 +39,22 @@ class Oponeo(webdriver.Chrome):
         if select_width_flag!=1:
             print("Width not avaliable")
             return
+        time.sleep(1)
+        ratio_tag = self.find_element(By.ID,"_carTires_ctTS_ddlDimRatio")
+        select_ratio = Select(ratio_tag)
+        select_ratio_flag = 0
+        for option in select_ratio.options:
+            print(option.get_attribute("value"))
+            if option.get_attribute("value")==ratio:
+                select_ratio.select_by_value(ratio)
+                select_ratio_flag=1
+                break
+        if select_ratio_flag!=1:
+            print("Profile not avaliable")
+            return
+        diameter_tag = self.find_element(By.ID,"_carTires_ctTS_ddlDimDiameter")
 
-            
     
     
     def sleep_browser(self):
-        time.sleep(10)
+        time.sleep(20)
