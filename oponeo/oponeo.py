@@ -26,3 +26,7 @@ class Oponeo(webdriver.Chrome):
         decline_btn.click()
 
     
+    
+    
+    def sleep_browser():
+        time.sleep(10)
