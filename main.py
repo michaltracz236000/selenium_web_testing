@@ -17,8 +17,20 @@ with Oponeo() as bot:
     # bot.sort_by_price_desc()
     # bot.sort_by_price_asc()
     # bot.sort_by_evaluation()
-    # bot.get_products()
-    bot.get_products_with_higher_note(4.7)
+    # data = bot.get_products()
+    # for i in data:
+    #         print("Name: " + i['name'])
+    #         print("Model: " + i['model'])
+    #         print("Note: " + i['note'])
+    #         print("Price: " + i['price']+"zł/szt")
+    #         print()
+    data = bot.get_products_with_higher_note(4.7)
+    for i in data:
+            print("Name: " + i['name'])
+            print("Model: " + i['model'])
+            print("Note: " + i['note'])
+            print("Price: " + i['price']+"zł/szt")
+            print()
 
 
     bot.sleep_browser()
