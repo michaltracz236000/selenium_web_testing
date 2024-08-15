@@ -51,7 +51,7 @@ class Oponeo(webdriver.Chrome):
         if select_ratio_flag!=1:
             print("Ratio not avaliable")
             return
-        time.sleep(2)
+        time.sleep(1)
         diameter_tag = self.find_element(By.NAME,"_carTires_ctTS_ddlDimDiameter")
         select_diameter = Select(diameter_tag)
         select_diameter_flag=0
@@ -62,28 +62,60 @@ class Oponeo(webdriver.Chrome):
                 break
         if select_diameter_flag!=1:
             print("Diameter not avaliable")
-        time.sleep(2)
+        time.sleep(1)
 
     def click_choose_class(self):
         choose = self.find_element(By.CSS_SELECTOR,"#forSize > div:nth-child(2) > div.chooseBox.producer > div")
         choose.click()
-        time.sleep(2)
+        time.sleep(1)
 
     def select_premium(self):
         checkbox_premium = self.find_element(By.CSS_SELECTOR,"#forSize > div:nth-child(2) > div.chooseBox.producer.visible > div > div.options > div > div.producersGroup > div.groupItem.groupPremium > div.groupTitle > label > span > span")
         checkbox_premium.click()
+        time.sleep(1)
 
     def select_middle(self):
         checkbox_middle = self.find_element(By.CSS_SELECTOR,"#forSize > div:nth-child(2) > div.chooseBox.producer.visible > div > div.options > div > div.producersGroup > div.groupItem.groupMedium > div.groupTitle > label > span > span")
         checkbox_middle.click()
+        time.sleep(1)
 
     def select_economic(self):
         checkbox_economic = self.find_element(By.CSS_SELECTOR,"#forSize > div:nth-child(2) > div.chooseBox.producer.visible > div > div.options > div > div.producersGroup > div.groupItem.groupCheap > div.groupTitle > label > span > span")
         checkbox_economic.click()
+        time.sleep(1)
     
     def agree_select_tire_class(self):
         agree_btn = self.find_element(By.ID,"_carTires_ctTS_olProducers_lbAck0")
         agree_btn.click()
+        time.sleep(1)
+
+    def click_choose_type(self):
+        choose = self.find_element(By.CSS_SELECTOR,"#forSize > div:nth-child(2) > div.chooseBox.season > div")
+        choose.click()
+        time.sleep(1)
+        summer_btn = self.find_element(By.CSS_SELECTOR,"#_carTires_ctTS_olSeasons_rix_0 > label > span")
+        summer_btn.click()
+        time.sleep(1)
+
+    def select_summer_type(self):
+        summer_btn = self.find_element(By.CSS_SELECTOR,"#_carTires_ctTS_olSeasons_rix_0 > label > span")
+        summer_btn.click()
+        time.sleep(1)
+
+    def select_winter_type(self):
+        winter_btn = self.find_element(By.CSS_SELECTOR,"#_carTires_ctTS_olSeasons_rix_1 > label > span > span")
+        winter_btn.click()
+        time.sleep(1)
+    
+    def select_all_season_type(self):
+        all_season_btn = self.find_element(By.CSS_SELECTOR,"#_carTires_ctTS_olSeasons_rix_2 > label > span > span")
+        all_season_btn.click()
+        time.sleep(1)
+        
+    def agree_select_tire_type(self):
+        agree_btn = self.find_element(By.ID,"_carTires_ctTS_olSeasons_lbAck0")
+        agree_btn.click()
+        time.sleep(1)
     
     def sleep_browser(self):
         time.sleep(10)
