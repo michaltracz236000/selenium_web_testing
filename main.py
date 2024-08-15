@@ -13,6 +13,10 @@ with Oponeo() as bot:
     bot.search_tires()
     bot.tire_price("300","800")
     bot.select_speed("210")
+    bot.sort_by_popularity()
+    bot.sort_by_price_desc()
+    bot.sort_by_price_asc()
+    bot.sort_by_evaluation()
 
 
     bot.sleep_browser()

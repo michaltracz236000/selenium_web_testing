@@ -175,6 +175,40 @@ class Oponeo(webdriver.Chrome):
             print("Predkosc niedostępna")
         agree_speed = self.find_element(By.ID,"_ctTS_olSpeedIx_lbAck0")
         agree_speed.click()
+        time.sleep(2)
+
+    def sort_by_popularity(self):
+        sort_input = self.find_element(By.CSS_SELECTOR,"#_upTireLstSrt > div > div.sortOptions > div")
+        sort_input.click()
+        time.sleep(2)
+        popularity_btn = self.find_element(By.ID,"_ctLstSrt_ctLstSrt_p0_ctLabelDesc")
+        popularity_btn.click()
+        time.sleep(2)
+
+    def sort_by_price_desc(self):
+        sort_input = self.find_element(By.CSS_SELECTOR,"#_upTireLstSrt > div > div.sortOptions > div")
+        sort_input.click()
+        time.sleep(2)
+        price_btn = self.find_element(By.ID,"_ctLstSrt_ctLstSrt_p1_ctLabelDesc")
+        price_btn.click()
+        time.sleep(2)
+
+    def sort_by_price_asc(self):
+        sort_input = self.find_element(By.CSS_SELECTOR,"#_upTireLstSrt > div > div.sortOptions > div")
+        sort_input.click()
+        time.sleep(2)
+        price_btn = self.find_element(By.ID,"_ctLstSrt_ctLstSrt_p1_ctLabelAsc")
+        price_btn.click()
+        time.sleep(2)
+
+    def sort_by_evaluation(self):
+        sort_input = self.find_element(By.CSS_SELECTOR,"#_upTireLstSrt > div > div.sortOptions > div")
+        sort_input.click()
+        time.sleep(2)
+        evaluation_btn = self.find_element(By.ID,"_ctLstSrt_ctLstSrt_p2_ctLabelDesc")
+        evaluation_btn.click()
+        time.sleep(2)
+
 
     
     def sleep_browser(self):
