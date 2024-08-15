@@ -220,6 +220,17 @@ class Oponeo(webdriver.Chrome):
             print("Price: " + tire.find_element(By.CLASS_NAME,"priceValue").get_attribute("innerHTML")+"zł/szt")
             print()
 
+    def get_products_with_higher_note(self,note:float):
+        tires_div = self.find_element(By.CSS_SELECTOR,"#_upTL > div > div")
+        tires = tires_div.find_elements(By.CLASS_NAME, "product")
+        for tire in tires:
+            if len(tire.find_elements(By.CLASS_NAME,"note"))>0 and float(tire.find_element(By.CLASS_NAME,"note").get_attribute("innerHTML").replace(',','.'))>=note:
+                print("Name: " + tire.find_element(By.CLASS_NAME,"producerName").get_attribute("innerHTML"))
+                print("Model: " + tire.find_element(By.CLASS_NAME,"modelName").get_attribute("innerHTML"))
+                print("Note: " + tire.find_element(By.CLASS_NAME,"note").get_attribute("innerHTML"))
+                print("Price: " + tire.find_element(By.CLASS_NAME,"priceValue").get_attribute("innerHTML")+"zł/szt")
+                print()
+
 
 
 

@@ -17,7 +17,8 @@ with Oponeo() as bot:
     # bot.sort_by_price_desc()
     # bot.sort_by_price_asc()
     # bot.sort_by_evaluation()
-    bot.get_products()
+    # bot.get_products()
+    bot.get_products_with_higher_note(4.7)
 
 
     bot.sleep_browser()
