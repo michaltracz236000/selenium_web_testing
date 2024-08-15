@@ -116,6 +116,12 @@ class Oponeo(webdriver.Chrome):
         agree_btn = self.find_element(By.ID,"_carTires_ctTS_olSeasons_lbAck0")
         agree_btn.click()
         time.sleep(1)
+
+    def search_tires(self):
+        agree_btn = self.find_element(By.ID,"_carTires_ctTS_lbSubmit0")
+        agree_btn.click()
+        time.sleep(1)
+        
     
     def sleep_browser(self):
         time.sleep(10)
