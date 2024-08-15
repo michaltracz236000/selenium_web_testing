@@ -209,6 +209,19 @@ class Oponeo(webdriver.Chrome):
         evaluation_btn.click()
         time.sleep(2)
 
+    def get_products(self):
+        tires_div = self.find_element(By.CSS_SELECTOR,"#_upTL > div > div")
+        tires = tires_div.find_elements(By.CLASS_NAME, "product")
+        for tire in tires:
+            print("Name: " + tire.find_element(By.CLASS_NAME,"producerName").get_attribute("innerHTML"))
+            print("Model: " + tire.find_element(By.CLASS_NAME,"modelName").get_attribute("innerHTML"))
+            if len(tire.find_elements(By.CLASS_NAME,"note"))>0:
+                print("Note: " + tire.find_element(By.CLASS_NAME,"note").get_attribute("innerHTML"))
+            print("Price: " + tire.find_element(By.CLASS_NAME,"priceValue").get_attribute("innerHTML")+"zł/szt")
+            print()
+
+
+
 
     
     def sleep_browser(self):
