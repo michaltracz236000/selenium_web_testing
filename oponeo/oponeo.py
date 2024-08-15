@@ -121,7 +121,28 @@ class Oponeo(webdriver.Chrome):
         agree_btn = self.find_element(By.ID,"_carTires_ctTS_lbSubmit0")
         agree_btn.click()
         time.sleep(1)
-        
+
+    def tire_price(self, min, max):
+        min_price_input = self.find_element(By.ID, "_ctTS_inpPF")
+        min_price_input.click()
+        time.sleep(2)
+        for i in range (0,5):
+            min_price_input.send_keys(Keys.ARROW_RIGHT)
+        for i in range (0,5):
+            min_price_input.send_keys(Keys.BACKSPACE)
+        min_price_input.send_keys(min)
+        time.sleep(2)
+        max_price_input = self.find_element(By.ID, "_ctTS_inpPT")
+        max_price_input.click()
+        time.sleep(2)
+        for i in range (0,5):
+            max_price_input.send_keys(Keys.ARROW_RIGHT)
+        for i in range (0,5):
+            max_price_input.send_keys(Keys.BACKSPACE)
+        max_price_input.send_keys(max)
+        time.sleep(2)
+    
+
     
     def sleep_browser(self):
         time.sleep(10)

@@ -11,6 +11,7 @@ with Oponeo() as bot:
     bot.select_winter_type()
     bot.agree_select_tire_type()
     bot.search_tires()
+    bot.tire_price("300","800")
 
 
     bot.sleep_browser()
