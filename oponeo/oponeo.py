@@ -62,8 +62,25 @@ class Oponeo(webdriver.Chrome):
                 break
         if select_diameter_flag!=1:
             print("Diameter not avaliable")
+        time.sleep(2)
 
+    def click_choose_class(self):
+        choose = self.find_element(By.CSS_SELECTOR,"#forSize > div:nth-child(2) > div.chooseBox.producer > div")
+        choose.click()
+        time.sleep(2)
+
+    def select_premium(self):
+        checkbox_premium = self.find_element(By.CSS_SELECTOR,"#forSize > div:nth-child(2) > div.chooseBox.producer.visible > div > div.options > div > div.producersGroup > div.groupItem.groupPremium > div.groupTitle > label > span > span")
+        checkbox_premium.click()
+
+    def select_middle(self):
+        checkbox_middle = self.find_element(By.CSS_SELECTOR,"#forSize > div:nth-child(2) > div.chooseBox.producer.visible > div > div.options > div > div.producersGroup > div.groupItem.groupMedium > div.groupTitle > label > span > span")
+        checkbox_middle.click()
+
+    def select_economic(self):
+        checkbox_economic = self.find_element(By.CSS_SELECTOR,"#forSize > div:nth-child(2) > div.chooseBox.producer.visible > div > div.options > div > div.producersGroup > div.groupItem.groupCheap > div.groupTitle > label > span > span")
+        checkbox_economic.click()
     
     
     def sleep_browser(self):
-        time.sleep(20)
+        time.sleep(10)
