@@ -81,6 +81,9 @@ class Oponeo(webdriver.Chrome):
         checkbox_economic = self.find_element(By.CSS_SELECTOR,"#forSize > div:nth-child(2) > div.chooseBox.producer.visible > div > div.options > div > div.producersGroup > div.groupItem.groupCheap > div.groupTitle > label > span > span")
         checkbox_economic.click()
     
+    def agree_select_tire_class(self):
+        agree_btn = self.find_element(By.ID,"_carTires_ctTS_olProducers_lbAck0")
+        agree_btn.click()
     
     def sleep_browser(self):
         time.sleep(10)
