@@ -142,6 +142,39 @@ class Oponeo(webdriver.Chrome):
         max_price_input.send_keys(max)
         time.sleep(2)
     
+    def select_speed(self,speed):
+        speed_input = self.find_element(By.CSS_SELECTOR,"#forSize > div.advanced > div:nth-child(1) > div.chooseBox.speedIndex > div")
+        speed_input.click()
+        time.sleep(2)
+        if speed=="190":
+            if self.find_element(By.ID,"_ctTS_olSpeedIx_rix_1").get_attribute("class")=='disabled':
+                print("Predkosc niedostępna")
+            else:
+                self.find_element(By.CSS_SELECTOR,"#_ctTS_olSpeedIx_rix_1 > label > span > span").click()
+        elif speed=="210":
+            if self.find_element(By.ID,"_ctTS_olSpeedIx_rix_2").get_attribute("class")=='disabled':
+                print("Predkosc niedostępna")
+            else:
+                self.find_element(By.CSS_SELECTOR,"#_ctTS_olSpeedIx_rix_2 > label > span > span").click()
+        elif speed=="240":
+            if self.find_element(By.ID,"_ctTS_olSpeedIx_rix_5").get_attribute("class")=='disabled':
+                print("Predkosc niedostępna")
+            else:
+                self.find_element(By.CSS_SELECTOR,"#_ctTS_olSpeedIx_rix_5 > label > span > span").click()
+        elif speed=="270":
+            if self.find_element(By.ID,"_ctTS_olSpeedIx_rix_6").get_attribute("class")=='disabled':
+                print("Predkosc niedostępna")
+            else:
+                self.find_element(By.CSS_SELECTOR,"#_ctTS_olSpeedIx_rix_6 > label > span > span").click()
+        elif speed=="300":
+            if self.find_element(By.ID,"_ctTS_olSpeedIx_rix_9").get_attribute("class")=='disabled':
+                print("Predkosc niedostępna")
+            else:
+                self.find_element(By.CSS_SELECTOR,"#_ctTS_olSpeedIx_rix_9 > label > span > span").click()
+        else:
+            print("Predkosc niedostępna")
+        agree_speed = self.find_element(By.ID,"_ctTS_olSpeedIx_lbAck0")
+        agree_speed.click()
 
     
     def sleep_browser(self):
