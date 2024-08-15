@@ -249,9 +249,50 @@ class Oponeo(webdriver.Chrome):
                     }
                 )
         return data
-
-
-
+    
+    def get_products_by_name(self,name_to_find):
+        tires_div = self.find_element(By.CSS_SELECTOR,"#_upTL > div > div")
+        tires = tires_div.find_elements(By.CLASS_NAME, "product")
+        data = []
+        for tire in tires:
+            name = tire.find_element(By.CLASS_NAME,"producerName").get_attribute("innerHTML")
+            model = tire.find_element(By.CLASS_NAME,"modelName").get_attribute("innerHTML")
+            note="0,0"
+            if len(tire.find_elements(By.CLASS_NAME,"note"))>0:
+                note = tire.find_element(By.CLASS_NAME,"note").get_attribute("innerHTML")
+            price = tire.find_element(By.CLASS_NAME,"priceValue").get_attribute("innerHTML")
+            if name == name_to_find:
+                data.append(
+                    {
+                        'name': name,
+                        'model': model,
+                        "note" : note,
+                        'price': price
+                    }
+                )
+        return data
+    
+    def get_products_by_model(self,model_to_find):
+        tires_div = self.find_element(By.CSS_SELECTOR,"#_upTL > div > div")
+        tires = tires_div.find_elements(By.CLASS_NAME, "product")
+        data = []
+        for tire in tires:
+            name = tire.find_element(By.CLASS_NAME,"producerName").get_attribute("innerHTML")
+            model = tire.find_element(By.CLASS_NAME,"modelName").get_attribute("innerHTML")
+            note="0,0"
+            if len(tire.find_elements(By.CLASS_NAME,"note"))>0:
+                note = tire.find_element(By.CLASS_NAME,"note").get_attribute("innerHTML")
+            price = tire.find_element(By.CLASS_NAME,"priceValue").get_attribute("innerHTML")
+            if model == model_to_find:
+                data.append(
+                    {
+                        'name': name,
+                        'model': model,
+                        "note" : note,
+                        'price': price
+                    }
+                )
+        return data
     
     def sleep_browser(self):
         time.sleep(10)

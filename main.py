@@ -24,13 +24,27 @@ with Oponeo() as bot:
     #         print("Note: " + i['note'])
     #         print("Price: " + i['price']+"zł/szt")
     #         print()
-    data = bot.get_products_with_higher_note(4.7)
+    # data = bot.get_products_with_higher_note(4.7)
+    # for i in data:
+    #         print("Name: " + i['name'])
+    #         print("Model: " + i['model'])
+    #         print("Note: " + i['note'])
+    #         print("Price: " + i['price']+"zł/szt")
+    #         print()
+    data = bot.get_products_by_name("Nexen")
     for i in data:
             print("Name: " + i['name'])
             print("Model: " + i['model'])
             print("Note: " + i['note'])
             print("Price: " + i['price']+"zł/szt")
             print()
+    # data = bot.get_products_by_model("Blizzak LM005")
+    # for i in data:
+    #         print("Name: " + i['name'])
+    #         print("Model: " + i['model'])
+    #         print("Note: " + i['note'])
+    #         print("Price: " + i['price']+"zł/szt")
+    #         print()
 
 
     bot.sleep_browser()
