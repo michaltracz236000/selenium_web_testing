@@ -1,4 +1,4 @@
-from oponeo.oponeo import Oponeo
+from selenium_class.selenium_class import Class
 import unittest
 
 # with Oponeo() as bot:
@@ -50,24 +50,24 @@ import unittest
 
 class TestDodawania(unittest.TestCase):
     def setUp(self):
-        self.oponeo = Oponeo()
-        self.oponeo.load_page()
-        self.oponeo.decline_cookies()
-        self.oponeo.choose_size('215','55','17')
-        self.oponeo.click_choose_class()
-        self.oponeo.select_premium()
-        self.oponeo.agree_select_tire_class()
-        self.oponeo.click_choose_type()
-        self.oponeo.select_winter_type()
-        self.oponeo.agree_select_tire_type()
-        self.oponeo.search_tires()
+        self.selenium = Class()
+        self.selenium.load_page()
+        self.selenium.decline_cookies()
+        self.selenium.choose_size('215','55','17')
+        self.selenium.click_choose_class()
+        self.selenium.select_premium()
+        self.selenium.agree_select_tire_class()
+        self.selenium.click_choose_type()
+        self.selenium.select_winter_type()
+        self.selenium.agree_select_tire_type()
+        self.selenium.search_tires()
 
     def test_dodaj_liczby(self):
-        data = self.oponeo.get_products_by_name("Nokian Tyres")
+        data = self.selenium.get_products_by_name("Nokian Tyres")
         self.assertGreater(len(data),0)
 
     def test_dodaj_bledny_typ(self):
-        data = self.oponeo.get_products_by_name("Nexen")
+        data = self.selenium.get_products_by_name("Nexen")
         self.assertGreater(len(data),0)
         
 

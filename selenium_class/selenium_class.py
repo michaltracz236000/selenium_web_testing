@@ -1,4 +1,4 @@
-import oponeo.constants as con
+import selenium_class.constants as con
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -8,7 +8,7 @@ from selenium.webdriver.support.select import Select
 
 import time
 
-class Oponeo(webdriver.Chrome):
+class Class(webdriver.Chrome):
     def __init__(self):
         chrome_options = Options()
         chrome_options.add_argument("--disable-search-engine-choice-screen")
